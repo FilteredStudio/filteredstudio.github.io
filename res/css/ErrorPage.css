@@ -56,8 +56,12 @@ p {
 	transform: translate(-50%, -50%);
 }
 
+.linkpanel {
+	margin: auto;
+}
+
 body {
-	background-image: url("back.png");
+	background-image: url("/res/img/sitebackground0.png");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
