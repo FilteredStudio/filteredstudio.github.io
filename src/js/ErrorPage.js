@@ -55,7 +55,7 @@ const errorCodes = {
 	500:{
 		"page_title":"Site Under Maintenance",
 		"title":"The site is currently being developed",
-		"body":"This site is still being worked on, you can return to my other pages below.\n\nTo access docs pages for various repositories, enter <code>/{repository}</code> into the url.",
+		"body":"This site's homepage is still being worked on, you can return to my other pages below.\n\nTo access docs pages for various repositories, enter <code>/{repository}</code> into the url.",
 		"buttonKey":"socialMedia"
 	},
 
