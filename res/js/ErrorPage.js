@@ -33,6 +33,8 @@ const buttonLayouts = {
 			"href":"https://github.com/FilteredStudio"
 		}
 	],
+
+	none: []
 }
 
 const errorCodes = {
@@ -55,46 +57,57 @@ const errorCodes = {
 		"title":"The site is currently being developed",
 		"body":"This site is still being worked on, you can return to my other pages below.",
 		"buttonKey":"socialMedia"
+	},
+
+	42069:{
+		"page_title":"You tried.",
+		"title":"Invalid input for ?code",
+		"body":"You tried though, have a gold star :)",
+		"buttonKey":"none"
 	}
 }
 
 //code
 
 const urlParams = new URLSearchParams(window.location.search);
-var inputtedECODE = urlParams.get("code") || DEFAULT_ERROR_CODE
-
-var JSONSource = errorCodes[inputtedECODE] || {
-	"page_title":"Unknown Error",
-	"title":`${inputtedECODE} (Unknown Error)`,
-	"body":"We dont handle this error right now, but something probably went wrong.",
-	"buttonKey":"goBackHome"
-}
+var inputtedECODE = Number(urlParams.get("code") || DEFAULT_ERROR_CODE)
 
 
 window.onload = function(){
-	var PAGETITLE = document.getElementsByTagName("title")[0]
-	var TITLE = document.getElementsByClassName("ptitle1")[0]
-	var BODY = document.getElementsByClassName("paragraph")[0]
-	var BUTTONPANEL = document.getElementsByClassName("linkpanel")[0]
-
-	var buttons = buttonLayouts[JSONSource.buttonKey]
-
-	PAGETITLE.innerHTML = JSONSource.page_title
-	TITLE.innerHTML = JSONSource.title
-	BODY.innerHTML = JSONSource.body
-
-	function makeButtons(data, index){
-		var newButton = document.createElement("a")
-		newButton.classList.add("media")
-		newButton.href = data.href
-		newButton.innerHTML = data.body
-
-		BUTTONPANEL.appendChild(newButton)
-
-		if (index != buttons.length) {
-			BUTTONPANEL.appendChild(document.createTextNode("\n"))
+	if (isNaN(inputtedECODE)) {
+		window.location.replace("/error?code=42069")
+	} else {
+		var JSONSource = errorCodes[inputtedECODE] || {
+			"page_title":"Unknown Error",
+			"title":`${inputtedECODE} (Unknown Error)`,
+			"body":"We dont handle this error right now, but something probably went wrong.",
+			"buttonKey":"goBackHome"
 		}
-	}
 
-	buttons.forEach(makeButtons)
+		var PAGETITLE = document.getElementsByTagName("title")[0]
+		var TITLE = document.getElementsByClassName("ptitle1")[0]
+		var BODY = document.getElementsByClassName("paragraph")[0]
+		var BUTTONPANEL = document.getElementsByClassName("linkpanel")[0]
+
+		var buttons = buttonLayouts[JSONSource.buttonKey]
+
+		PAGETITLE.innerHTML = JSONSource.page_title
+		TITLE.innerHTML = JSONSource.title
+		BODY.innerHTML = JSONSource.body
+
+		function makeButtons(data, index){
+			var newButton = document.createElement("a")
+			newButton.classList.add("media")
+			newButton.href = data.href
+			newButton.innerHTML = data.body
+
+			BUTTONPANEL.appendChild(newButton)
+
+			if (index != buttons.length) {
+				BUTTONPANEL.appendChild(document.createTextNode("\n"))
+			}
+		}
+
+		buttons.forEach(makeButtons)
+	}
 }
