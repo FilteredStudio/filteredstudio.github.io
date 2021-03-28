@@ -1,76 +1,17 @@
+<!-- this is a clone of the error page page, 
+	however it shows a slightly different link layout#
+
+	The error page itself has a HOMEPAGE and GO BACK button, while this page shows social media links
+
+	Dont stage this with production builds unless its for a ready build.
+-->
+
 <html>
 	<head></head>	
 		<title>
 			The site is under development!
 		</title>
-
-		<style>
-			p {
-				color: black;
-			}
-
-			.ptitle1 {
-				font-family: Arial, Helvetica, sans-serif;
-				font-weight: bold;
-				font-size: 20px;
-			}
-
-			.paragraph {
-				font-family: Arial, Helvetica, sans-serif;
-				font-size: 14px;
-			}
-
-			.media {
-				transition-duration: 0.15s;
-				border-radius: 10px;
-				
-				width: 80px;
-  			padding: 14px 5px;
-  			text-align: center;
-  			text-decoration: none;
-  			display: inline-block;
-				font-family:'Arial';
-				font-size: 14px;
-
-				border: 3px solid #106AFF;
-			}
-
-			.media:link, .media:visited {
-				background-color: #bbb;
-  			color: black;
-			}
-
-			.media:hover, .media:active {
-				background-color: #106AFF;
-				color: white;
-				box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-				
-			}
-
-			.panel {
-				width: 500px;
-        margin: auto;
-				text-align: center;
-        border: 3px solid #ff5969;
-				background-color: #aaa;
-				padding: 5px;
-
-				border-radius: 8px;
-
-				position: absolute;
-				left: 50%;
-				top: 50%;
-				transform: translate(-50%, -50%);
-			}
-
-			body {
-				background-image: url("back.png");
-				background-position: center center;
-				background-repeat: no-repeat;
-				background-attachment: fixed;
-				background-size: cover;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="../error-page/style.css" media="screen"/>
 	</head>
 
 	<body>
