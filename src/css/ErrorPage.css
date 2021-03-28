@@ -44,7 +44,7 @@ p {
 	width: 500px;
 	margin: auto;
 	text-align: center;
-	border: 3px solid #ff5969;
+	border: 3px solid #ff5959;
 	background-color: #aaa;
 	padding: 5px;
 
@@ -58,12 +58,4 @@ p {
 
 .linkpanel {
 	margin: auto;
-}
-
-body {
-	background-image: url("/src/img/sitebackground0.png");
-	background-position: center center;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	background-size: cover;
 }
